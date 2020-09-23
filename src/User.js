@@ -1,19 +1,18 @@
-import React from "react";
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 
 const GET_USER = gql`
-  {
-    getName
+  mutation createMessage($data: messageInput) {
+    createMessage(input: $data) {
+      message
+      id
+    }
   }
 `;
 
-export const User = () => {
-  const { loading, error, data } = useQuery(GET_USER);
-  if (loading) return <div>...Loadinf is</div>;
-  return (
-    <div>
-      Hello World User
-      <div>Name: {data.getName}</div>
-    </div>
-  );
-};
+const getAllmessage = gql`
+  query getAllmessaga {
+    message
+    id
+  }
+`;
+export { GET_USER, getAllmessage };

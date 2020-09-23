@@ -1,11 +1,14 @@
 const { gql } = require("apollo-server");
 
 const typeDefs = gql`
-  type createMessageType {
+  type messageType {
+    message: String
+  }
+  input messageInput {
     message: String
   }
   type Mutation {
-    createMessage: String
+    createMessage(input: messageInput): messageType
   }
   type Query {
     getMessage: String

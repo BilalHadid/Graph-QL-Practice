@@ -1,3 +1,5 @@
+let crypto = require("crypto");
+let localData = {};
 const resolvers = {
   Query: {
     getMessage: () => {
@@ -7,7 +9,14 @@ const resolvers = {
       return "Bilal Hadid";
     },
   },
-  Mutation: {},
+  Mutation: {
+    createMessage: (_, { input }) => {
+      let id = crypto.randomBytes(1).toString("hex");
+      console.log(`id`, id);
+      localData[id] = { id, ...input.message };
+      return { id, ...input };
+    },
+  },
 };
 
 module.exports = resolvers;

@@ -5,8 +5,8 @@ import { GET_USER, getAllmessage } from "./User";
 import { useMutation, useQuery } from "@apollo/client";
 
 function App() {
-  let { data, error, loading } = useQuery(getAllmessage);
-  console.log("data", data, "error", error, "loading", loading);
+  let { loading } = useQuery(getAllmessage);
+  // console.log("data", data, "error", error, "loading", loading);
   const messageValue = createRef();
   const [addMessage] = useMutation(GET_USER);
   const submit = () => {
@@ -19,6 +19,7 @@ function App() {
         console.log("error");
       });
   };
+  if (loading) return <div>....Loading ka</div>;
   return (
     <div className="App">
       <input ref={messageValue} placeholder="message" />

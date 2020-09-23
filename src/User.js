@@ -11,8 +11,10 @@ const GET_USER = gql`
 
 const getAllmessage = gql`
   query getAllmessaga {
-    message
-    id
+    getAllmessaga {
+      message
+      id
+    }
   }
 `;
 export { GET_USER, getAllmessage };

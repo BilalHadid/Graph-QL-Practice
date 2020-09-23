@@ -8,6 +8,12 @@ const resolvers = {
     getName: () => {
       return "Bilal Hadid";
     },
+    getAllmessaga: () => {
+      return [
+        { message: "test", id: "2356" },
+        { message: "test1", id: "2358" },
+      ];
+    },
   },
   Mutation: {
     createMessage: (_, { input }) => {

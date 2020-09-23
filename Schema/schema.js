@@ -3,6 +3,7 @@ const { gql } = require("apollo-server");
 const typeDefs = gql`
   type messageType {
     message: String
+    id: ID
   }
   input messageInput {
     message: String
@@ -13,6 +14,7 @@ const typeDefs = gql`
   type Query {
     getMessage: String
     getName: String
+    getAllmessaga: [messageType]
   }
 `;
 

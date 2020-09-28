@@ -1,12 +1,12 @@
 import React, { createRef } from "react";
 import "./App.css";
-// import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { GET_USER, getAllmessage } from "./User";
 import { useMutation, useQuery } from "@apollo/client";
 
 function App() {
   let { loading } = useQuery(getAllmessage);
-  // console.log("data", data, "error", error, "loading", loading);
+
   const messageValue = createRef();
   const [addMessage] = useMutation(GET_USER);
   const submit = () => {
